@@ -1,23 +1,26 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase/config";
-import { setCookie } from "cookies-next"; // cookies-next import
-import { ToastContainer, toast } from "react-toastify"; // react-toastify import
-import "react-toastify/dist/ReactToastify.css"; // toastify CSS import
+import { auth } from "../firebase/config";
+import { setCookie } from "cookies-next";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
-
-export default function Home() {
+const RegisterPage = () => {
   const router = useRouter();
   const initialValues = {
+    username: "",
     email: "",
     password: "",
+    confirmPassword: "",
   };
 
   const validationSchema = Yup.object({
+    username: Yup.string().trim().required("Username is required"),
     email: Yup.string()
       .trim()
       .email("Invalid email address")
@@ -26,26 +29,39 @@ export default function Home() {
       .trim()
       .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
+    confirmPassword: Yup.string()
+      .trim()
+      .oneOf([Yup.ref("password")], "Passwords must match")
+      .required("Confirm Password is required"),
   });
 
-  const handleLogin = async (values: any, { setSubmitting }: any) => {
+  const handleSignUp = async (values: any, { setSubmitting }: any) => {
     try {
-      const res = await signInWithEmailAndPassword(
+      const res = await createUserWithEmailAndPassword(
         auth,
         values.email,
         values.password
       );
+
       setSubmitting(false);
 
       if (res) {
-        setCookie("user", "true");
-        toast.success("Login successful!");
+        toast.success("Registration successful!");
       }
 
-      router.push("/home");
+      router.push("/");
     } catch (error: any) {
       console.error("Firebase Error:", error);
-      toast.error("Login failed. Please check your credentials.");
+      console.log("Error code:", error.code);
+      console.log("Error message:", error.message);
+
+      if (error.code === "auth/email-already-in-use") {
+        toast.error(
+          "This email is already in use. Please use a different email."
+        );
+      } else {
+        toast.error(error.message || "An error occurred. Please try again.");
+      }
       setSubmitting(false);
     }
   };
@@ -71,10 +87,24 @@ export default function Home() {
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={handleLogin}
+            onSubmit={handleSignUp}
           >
             {({ isSubmitting }) => (
               <Form>
+                <div className="mb-4 text-lg">
+                  <Field
+                    className="rounded-3xl border-none bg-[#1D303F] bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                  />
+                  <ErrorMessage
+                    name="username"
+                    component="div"
+                    className="text-red-500 mt-1 text-sm"
+                  />
+                </div>
+
                 <div className="mb-4 text-lg">
                   <Field
                     className="rounded-3xl border-none bg-[#1D303F] bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
@@ -102,18 +132,33 @@ export default function Home() {
                     className="text-red-500 mt-1 text-sm"
                   />
                 </div>
-                <div className="flex items-center justify-center">
+
+                <div className="mb-4 text-lg">
+                  <Field
+                    className="rounded-3xl border-none bg-[#1D303F] bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                  />
+                  <ErrorMessage
+                    name="confirmPassword"
+                    component="div"
+                    className="text-red-500 mt-1 text-sm"
+                  />
+                </div>
+
+                <div className=" flex items-center justify-center">
                   <button
                     type="submit"
                     className="px-6 rounded py-2 font-medium bg-[#425769] text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Logging in..." : "Login"}
+                    {isSubmitting ? "Registering..." : "Register"}
                   </button>
                 </div>
                 <div className="pt-2">
-                  <Link href="/register" className="text-blue-300">
-                    Don`t have an account?
+                  <Link href={"/"} className="text-blue-300">
+                    Have an account?
                   </Link>
                 </div>
               </Form>
@@ -124,4 +169,6 @@ export default function Home() {
       <ToastContainer />
     </div>
   );
-}
+};
+
+export default RegisterPage;
