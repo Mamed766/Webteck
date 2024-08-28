@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
       <div className="bg-[#F0F4FF] pt-[10rem] pb-[15rem]">
         <Solution />
       </div>
-      <div className="bg-white mt-5 ">
+      <div className="bg-white py-10 mt-5 ">
         <TragaHome />
       </div>
       <div className="bg-[#F0F4FF]">
