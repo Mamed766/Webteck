@@ -1,0 +1,15 @@
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  .header__tablet {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .header__mobile {
+    display: none !important;
+  }
+
+  .header__pad {
+    padding: 1rem;
+  }
+}
