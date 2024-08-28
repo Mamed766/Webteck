@@ -106,7 +106,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       {isOpen && (
         <div
           onClick={onClose}
-          className="fixed z-20 h-full w-full bg-black/40"
+          className="fixed z-20 h-full w-full bg-black/70"
         ></div>
       )}
     </>
