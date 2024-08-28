@@ -1,0 +1,18 @@
+@media screen and (max-width: 868px) {
+  .provideRes {
+    transform: translateY(300px) !important;
+  }
+}
+
+@media screen and (max-width: 725px) {
+  .provideRes {
+    transform: translateY(500px) !important;
+  }
+  .provideDirection {
+    flex-direction: column !important;
+  }
+
+  .provideHeight {
+    height: 70rem !important;
+  }
+}

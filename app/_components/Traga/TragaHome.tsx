@@ -5,6 +5,7 @@ import RippleButton from "../Buttons/RippleButton";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import "./tragaHome.scss";
+import LogoText from "../LogoText/LogoText";
 
 type TragaOptions = {
   reverse: boolean;
@@ -46,17 +47,7 @@ const TragaHome = () => {
           </Tilt>
         </div>
         <div className="flex gap-2 flex-col">
-          <div className="flex  gap-2 items-center">
-            <Image
-              height={30}
-              width={30}
-              alt=""
-              src="https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/title_shape_2.svg"
-            />
-            <h2 className="text-[16px] font-semibold text-[#684DF4]">
-              ABOUT TRAGA IT SOLUTIONS
-            </h2>
-          </div>
+          <LogoText title="ABOUT TRAGA IT SOLUTIONS" />
           <div>
             <motion.h1
               className="text-[40px] font-bold max-w-[500px]"

@@ -9,6 +9,7 @@ import { Tilt } from "react-tilt";
 import "./homepage.scss";
 import Solution from "../_components/Solution/solution";
 import TragaHome from "../_components/Traga/TragaHome";
+import ProvideServices from "../_components/ProvideServices/ProvideServices";
 
 const HomePage: React.FC = () => {
   return (
@@ -18,6 +19,9 @@ const HomePage: React.FC = () => {
       </div>
       <div className="bg-white mt-5 ">
         <TragaHome />
+      </div>
+      <div className="bg-[#F0F4FF]">
+        <ProvideServices />
       </div>
     </div>
   );

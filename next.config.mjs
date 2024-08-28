@@ -6,6 +6,7 @@ const nextConfig = {
       "https://unsplash.com/",
       "themeholy.com",
       "unsplash.com",
+      "wordpress.themeholy.com",
     ],
   },
 };
