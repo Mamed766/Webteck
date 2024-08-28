@@ -17,13 +17,13 @@ const ProvideServices = () => {
       <div className="mt-10">
         <div>
           <div
-            className="w-full relative h-[30rem] "
+            className="w-full relative rounded-md h-[30rem] "
             style={{
               backgroundImage:
                 'url("https://wordpress.themeholy.com/webteck/wp-content/uploads/2024/02/service_bg_2.jpg")',
-              backgroundSize: "cover", // Resmin alanı tamamen doldurmasını sağlar
-              backgroundPosition: "center", // Resmin ortalanmasını sağlar
-              backgroundRepeat: "no-repeat", // Resmin tekrar etmesini engeller
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
             }}
           >
             <div className="absolute top-[5rem] flex provideDirection  w-[80%] justify-between left-[4rem]">
