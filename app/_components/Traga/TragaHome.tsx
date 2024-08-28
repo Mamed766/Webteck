@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import RippleButton from "../Buttons/RippleButton";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
+import "./tragaHome.scss";
 
 type TragaOptions = {
   reverse: boolean;
@@ -30,12 +31,12 @@ const TragaHome = () => {
   };
   return (
     <div className="max-w-[1300px] mx-auto">
-      <div className="flex">
-        <div className="relative w-[40rem]">
+      <div className="flex tragaCenter flex-wrap">
+        <div className="flex  tragaPhoto relative  w-[40rem] ">
           <Tilt options={defaultOptions}>
             <Image
               height={100}
-              width={600}
+              width={500}
               src="https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/about_3_1.png"
               alt=""
             />
@@ -45,7 +46,7 @@ const TragaHome = () => {
           </Tilt>
         </div>
         <div className="flex gap-2 flex-col">
-          <div className="flex gap-2 items-center">
+          <div className="flex  gap-2 items-center">
             <Image
               height={30}
               width={30}
@@ -66,14 +67,14 @@ const TragaHome = () => {
               We Are Increasing Business Success With
               <span className="text-[#684DF4]"> Technology</span>
             </motion.h1>
-            <p className="text-gray-500 max-w-[600px]">
+            <p className="text-gray-500 mb-5 mt-2 max-w-[600px]">
               Synergistically incentivize effective imperatives through fully
               researched intellectual capital. Appropriately fashion
               client-based.
             </p>
-            <div className="w-full flex">
+            <div className="w-full gap-2 flex">
               <motion.button
-                className={`py-2 w-[50%] font-semibold text-white ${
+                className={`py-2 w-[40%] font-semibold text-white ${
                   activeCard === "award" ? "bg-[#684DF4]" : "bg-[#141D38]"
                 }`}
                 onClick={() => setActiveCard("award")}
@@ -84,7 +85,7 @@ const TragaHome = () => {
                 AWARD WINNING
               </motion.button>
               <motion.button
-                className={`py-2 w-[50%] font-semibold text-white ${
+                className={`py-2 w-[40%] font-semibold text-white ${
                   activeCard === "technology" ? "bg-[#684DF4]" : "bg-[#141D38]"
                 }`}
                 onClick={() => setActiveCard("technology")}
@@ -145,12 +146,13 @@ const TragaHome = () => {
                     </motion.p>
                     <div>
                       <motion.button
-                        className="bg-[#684DF4] p-3 rounded font-semibold text-white text-[12px]"
+                        className="bg-[#684DF4] p-3 rounded font-semibold group relative text-white text-[12px]"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
                       >
-                        ABOUT MORE
+                        <div className="absolute inset-0 bg-black rounded-md transform scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-500 ease-in-out"></div>
+                        <span className="relative z-10">ABOUT MORE</span>
                       </motion.button>
                     </div>
                   </>
@@ -177,12 +179,13 @@ const TragaHome = () => {
                     </motion.p>
                     <div>
                       <motion.button
-                        className="bg-[#684DF4] p-3 rounded font-semibold text-white text-[12px]"
+                        className="bg-[#684DF4] p-3 rounded font-semibold relative group text-white text-[12px]"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
                       >
-                        ABOUT MORE
+                        <div className="absolute inset-0 bg-black rounded-md transform scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-500 ease-in-out"></div>
+                        <span className="relative z-10">ABOUT MORE</span>
                       </motion.button>
                     </div>
                   </>
