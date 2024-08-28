@@ -8,7 +8,7 @@ import { auth } from "../firebase/config";
 import { setCookie } from "cookies-next";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useRouter } from "next/navigation";
 const RegisterPage = () => {
   const router = useRouter();
@@ -42,14 +42,16 @@ const RegisterPage = () => {
         values.email,
         values.password
       );
-
-      setSubmitting(false);
-
       if (res) {
-        toast.success("Registration successful!");
-      }
+        await updateProfile(auth.currentUser!, {
+          displayName: values.username,
+        });
 
-      router.push("/");
+        setCookie("user", res.user.uid);
+        toast.success("Registration successful!");
+
+        router.push("/");
+      }
     } catch (error: any) {
       console.error("Firebase Error:", error);
       console.log("Error code:", error.code);

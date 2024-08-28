@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { LiaAngleDownSolid } from "react-icons/lia";
@@ -6,7 +7,6 @@ import Dropdown from "@/app/_components/Dropdown";
 import { IoSearchOutline } from "react-icons/io5";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { FaArrowRight } from "react-icons/fa6";
-
 import {
   blogItems,
   homeItems,
@@ -14,7 +14,25 @@ import {
   serviceItems,
 } from "@/app/_static/mockdb";
 import { FaSearch } from "react-icons/fa";
+import { signOut } from "firebase/auth";
+import { auth } from "@/app/firebase/config";
+import { deleteCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
+import { useAuthState } from "react-firebase-hooks/auth";
 const Header = () => {
+  const router = useRouter();
+  const [user] = useAuthState(auth);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      deleteCookie("user");
+      router.push("/");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   return (
     <div className=" bg-[#E1EAFF] shadow-md ">
       <div className=" max-w-[1300px] mx-auto flex justify-between items-center">
@@ -59,10 +77,14 @@ const Header = () => {
           <div className="bg-white p-4 rounded-full border cursor-pointer duration-300 hover:text-white hover:bg-[#684DF4]  ease-in-out  border-gray-200 shadow-md">
             <RiShoppingCartLine />
           </div>
+          <p> Hello {user ? user.displayName : "User"}!</p>
           <div>
-            <button className="bg-[#684DF4] relative group flex items-center justify-center gap-1 text-white p-2 w-[12rem]">
-              <div className="absolute inset-0 bg-black rounded-md transform scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-500 ease-in-out"></div>
-              <span className="relative z-10">MAKE APPOINTMENT</span>
+            <button
+              onClick={handleLogout}
+              className="bg-[#684DF4] rounded-md relative group flex items-center justify-center gap-1 text-white p-3 w-[12rem]"
+            >
+              <div className="absolute inset-0 bg-red-600 rounded-md transform scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-500 ease-in-out"></div>
+              <span className="relative z-10">Logout</span>
               <FaArrowRight className="z-10 text-[12px]" />
             </button>
           </div>
