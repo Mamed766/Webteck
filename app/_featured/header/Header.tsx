@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({ handleSideBar }) => {
             </div>
           </div>
           <div
-            className="p-3 rounded cursor-pointer text-white bg-[#684DF4]"
+            className="p-3 hidden  header__hamburger  rounded cursor-pointer text-white bg-[#684DF4]"
             onClick={handleSideBar}
           >
             <FaAlignRight />
