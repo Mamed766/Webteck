@@ -12,6 +12,7 @@ import TragaHome from "../_components/Traga/TragaHome";
 import ProvideServices from "../_components/ProvideServices/ProvideServices";
 import WhyChooseUs from "../_components/WhyChooseUs/WhyChooseUs";
 import Latest from "../_components/Latest/Latest";
+import Counters from "../_components/counters/Counters";
 
 const HomePage: React.FC = () => {
   return (
@@ -30,6 +31,17 @@ const HomePage: React.FC = () => {
       </div>
       <div className="bg-white">
         <Latest />
+      </div>
+      <div
+        className="bg-[#684DF4] py-20"
+        style={{
+          backgroundImage: `url('https://wordpress.themeholy.com/webteck/wp-content/uploads/2024/01/counter_bg_1.png')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <Counters />
       </div>
     </div>
   );

@@ -8,40 +8,7 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
 import RippleBlue from "../Effects/RippleBlue";
-
-const slidesLatestData = [
-  {
-    title: "IT Consultency",
-    description:
-      "Distinctively enable premium expertise for multifunctional action items. Energistically benchmark worldwide communities.",
-    imageUrl:
-      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/project_2_1.jpg",
-  },
-  {
-    title: "Web Development",
-    description:
-      "Distinctively enable premium expertise for multifunctional action items. Energistically benchmark worldwide communities.",
-
-    imageUrl:
-      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/project_2_3.jpg",
-  },
-  {
-    title: "App Development",
-    description:
-      "Distinctively enable premium expertise for multifunctional action items. Energistically benchmark worldwide communities.",
-
-    imageUrl:
-      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/project_2_2.jpg",
-  },
-  {
-    title: "App Development",
-    description:
-      "Distinctively enable premium expertise for multifunctional action items. Energistically benchmark worldwide communities.",
-
-    imageUrl:
-      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/project_2_4.jpg",
-  },
-];
+import { slidesLatestData } from "@/app/_static/mockdb";
 
 const Latest = () => {
   return (
