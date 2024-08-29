@@ -1,4 +1,9 @@
-import { Slide, ISlideLatestData, ICountersData } from "../_types/type";
+import {
+  Slide,
+  ISlideLatestData,
+  ICountersData,
+  IProcessStep,
+} from "../_types/type";
 
 export const pagesItems = [
   "Shop Page",
@@ -124,5 +129,40 @@ export const countersData: ICountersData[] = [
       "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/01/counter_1_4.svg",
     count: "496+",
     description: "Honorable Awards",
+  },
+];
+
+export const stepsData: IProcessStep[] = [
+  {
+    id: 1,
+    number: "01",
+    title: "Select a project",
+    description:
+      "Continua scale empowered metrics with cost effective innovation.",
+    icon: "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/process_card_1.svg",
+  },
+  {
+    id: 2,
+    number: "02",
+    title: "Project analysis",
+    description:
+      "Continua scale empowered metrics with cost effective innovation.",
+    icon: "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/process_card_2.svg",
+  },
+  {
+    id: 3,
+    number: "03",
+    title: "Plan Execute",
+    description:
+      "Continua scale empowered metrics with cost effective innovation.",
+    icon: "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/process_card_3.svg",
+  },
+  {
+    id: 4,
+    number: "04",
+    title: "Deliver result",
+    description:
+      "Continua scale empowered metrics with cost effective innovation.",
+    icon: "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/process_card_4.svg",
   },
 ];

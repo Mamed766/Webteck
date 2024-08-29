@@ -9,7 +9,6 @@ import { Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
 import RippleBlue from "../Effects/RippleBlue";
 import { slidesLatestData } from "@/app/_static/mockdb";
-
 const Latest = () => {
   return (
     <div className="max-w-[1300px] py-10 mx-auto">

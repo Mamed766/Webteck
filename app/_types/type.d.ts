@@ -32,3 +32,11 @@ export interface ICountersData {
   count: string;
   description: string;
 }
+
+export interface IProcessStep {
+  id: number;
+  number: string;
+  title: string;
+  description: string;
+  icon: string;
+}

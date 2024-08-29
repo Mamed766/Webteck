@@ -13,6 +13,7 @@ import ProvideServices from "../_components/ProvideServices/ProvideServices";
 import WhyChooseUs from "../_components/WhyChooseUs/WhyChooseUs";
 import Latest from "../_components/Latest/Latest";
 import Counters from "../_components/counters/Counters";
+import Process from "../_components/Process/Process";
 
 const HomePage: React.FC = () => {
   return (
@@ -42,6 +43,9 @@ const HomePage: React.FC = () => {
         }}
       >
         <Counters />
+      </div>
+      <div className="bg-[#F5F5F5]">
+        <Process />
       </div>
     </div>
   );
