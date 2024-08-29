@@ -32,3 +32,18 @@
   height: 100%;
   object-fit: cover;
 }
+
+.latestSwiper .swiper-pagination {
+  transform: translateY(10px);
+}
+
+.latestSwiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
+
+.latestSwiper .swiper-pagination-bullet-active {
+  width: 16px;
+  height: 16px;
+  background-color: #684df4;
+}

@@ -11,6 +11,7 @@ import Solution from "../_components/Solution/solution";
 import TragaHome from "../_components/Traga/TragaHome";
 import ProvideServices from "../_components/ProvideServices/ProvideServices";
 import WhyChooseUs from "../_components/WhyChooseUs/WhyChooseUs";
+import Latest from "../_components/Latest/Latest";
 
 const HomePage: React.FC = () => {
   return (
@@ -26,6 +27,9 @@ const HomePage: React.FC = () => {
       </div>
       <div className="bg-[#EEEFF1]">
         <WhyChooseUs />
+      </div>
+      <div className="bg-white">
+        <Latest />
       </div>
     </div>
   );

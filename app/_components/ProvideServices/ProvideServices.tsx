@@ -10,6 +10,7 @@ import RippleDiv from "../Effects/RippleDiv";
 import { Slide } from "@/app/_types/type";
 import { slidesData } from "@/app/_static/mockdb";
 import "./ProvideServices.scss";
+import { Autoplay } from "swiper/modules";
 
 const ProvideServices = () => {
   return (
@@ -45,6 +46,11 @@ const ProvideServices = () => {
                 pagination={{
                   clickable: true,
                 }}
+                autoplay={{
+                  delay: 1500,
+                  disableOnInteraction: false,
+                }}
+                modules={[Autoplay]}
                 className="mySwiper"
                 breakpoints={{
                   320: {
