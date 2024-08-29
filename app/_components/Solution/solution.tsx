@@ -3,20 +3,10 @@ import RippleEffect from "../Effects/RippleEffect";
 import RippleButton from "../Buttons/RippleButton";
 import { Tilt } from "react-tilt";
 import Image from "next/image";
-
-type Options = {
-  reverse: boolean;
-  max: number;
-  perspective: number;
-  speed: number;
-  transition: boolean;
-  axis: "x" | "y" | null;
-  reset: boolean;
-  easing: string;
-};
+import { ITiltOptions } from "../../_types/type";
 
 const Solution = () => {
-  const defaultOptions: Options = {
+  const defaultOptions: ITiltOptions = {
     reverse: false,
     max: 35,
     perspective: 1000,
@@ -25,6 +15,7 @@ const Solution = () => {
     axis: null,
     reset: true,
     easing: "cubic-bezier(.03,.98,.52,.99)",
+    scale: 1,
   };
 
   return (
@@ -63,13 +54,12 @@ const Solution = () => {
             </div>
           </div>
         </div>
-        <div className="mr-10">
+        <div className="mr-10 overflow-hidden">
           <Tilt options={defaultOptions}>
             <div className="flex home__image--wrap items-center">
               <Image
                 height={150}
                 width={500}
-                layout="responsive"
                 sizes=""
                 src="https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/hero_img_4_1.png"
                 alt="sadas"

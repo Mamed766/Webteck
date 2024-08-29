@@ -6,21 +6,11 @@ import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import "./tragaHome.scss";
 import LogoText from "../LogoText/LogoText";
-
-type TragaOptions = {
-  reverse: boolean;
-  max: number;
-  perspective: number;
-  speed: number;
-  transition: boolean;
-  axis: "x" | "y" | null;
-  reset: boolean;
-  easing: string;
-};
+import { ITiltOptions } from "../../_types/type";
 
 const TragaHome = () => {
   const [activeCard, setActiveCard] = useState("award");
-  const defaultOptions: TragaOptions = {
+  const defaultOptions: ITiltOptions = {
     reverse: false,
     max: 35,
     perspective: 1000,
@@ -29,6 +19,7 @@ const TragaHome = () => {
     axis: null,
     reset: true,
     easing: "cubic-bezier(.03,.98,.52,.99)",
+    scale: 1,
   };
   return (
     <div className="max-w-[1300px] mx-auto">
