@@ -63,3 +63,18 @@
   height: 16px;
   background-color: blueviolet;
 }
+
+.feedbackSwiper .swiper-pagination {
+  transform: translateY(5px);
+}
+
+.feedbackSwiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
+
+.feedbackSwiper .swiper-pagination-bullet-active {
+  width: 16px;
+  height: 16px;
+  background-color: blueviolet;
+}

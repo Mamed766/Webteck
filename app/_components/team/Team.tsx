@@ -15,32 +15,7 @@ import {
   FaPlus,
   FaTwitter,
 } from "react-icons/fa6";
-const teamMembers = [
-  {
-    name: "Alex Furnandes",
-    role: "Project Manager",
-    imageUrl:
-      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/team_3_2.jpg",
-  },
-  {
-    name: "Maria Garcia",
-    role: "UI/UX Designer",
-    imageUrl:
-      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/team_3_1.jpg",
-  },
-  {
-    name: "John Doe",
-    role: "Backend Developer",
-    imageUrl:
-      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/team_3_3.jpg",
-  },
-  {
-    name: "John Doe",
-    role: "Backend Developer",
-    imageUrl:
-      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/team_3_4.jpg",
-  },
-];
+import { teamMembers } from "@/app/_static/mockdb";
 
 const Team = () => {
   return (

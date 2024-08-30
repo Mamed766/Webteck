@@ -40,3 +40,17 @@ export interface IProcessStep {
   description: string;
   icon: string;
 }
+
+export type Testimonial = {
+  name: string;
+  role: string;
+  testimonial: string;
+  imageUrl: string;
+  rating: number;
+};
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  imageUrl: string;
+};

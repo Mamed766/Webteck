@@ -15,6 +15,7 @@ import Latest from "../_components/Latest/Latest";
 import Counters from "../_components/counters/Counters";
 import Process from "../_components/Process/Process";
 import Team from "../_components/team/Team";
+import CustomerFeedback from "../_components/CustomerFeedback/CustomerFeedback";
 
 const HomePage: React.FC = () => {
   return (
@@ -50,6 +51,9 @@ const HomePage: React.FC = () => {
       </div>
       <div className="bg-[#F5F5F5]">
         <Team />
+      </div>
+      <div className="bg-[#F5F5F5] h-[50rem]">
+        <CustomerFeedback />
       </div>
     </div>
   );

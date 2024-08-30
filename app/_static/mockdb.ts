@@ -3,6 +3,7 @@ import {
   ISlideLatestData,
   ICountersData,
   IProcessStep,
+  Testimonial,
 } from "../_types/type";
 
 export const pagesItems = [
@@ -164,5 +165,71 @@ export const stepsData: IProcessStep[] = [
     description:
       "Continua scale empowered metrics with cost effective innovation.",
     icon: "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/process_card_4.svg",
+  },
+];
+
+export const teamMembers = [
+  {
+    name: "Alex Furnandes",
+    role: "Project Manager",
+    imageUrl:
+      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/team_3_2.jpg",
+  },
+  {
+    name: "Maria Garcia",
+    role: "UI/UX Designer",
+    imageUrl:
+      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/team_3_1.jpg",
+  },
+  {
+    name: "John Doe",
+    role: "Backend Developer",
+    imageUrl:
+      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/team_3_3.jpg",
+  },
+  {
+    name: "John Doe",
+    role: "Backend Developer",
+    imageUrl:
+      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/team_3_4.jpg",
+  },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    name: "David Farnandes",
+    role: "CEO at Anaton",
+    testimonial:
+      "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration. Globally synergize resource sucking value via cutting-edge.",
+    imageUrl:
+      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/testi_3_4.jpg",
+    rating: 5,
+  },
+  {
+    name: "Jackline Techie",
+    role: "CTO at Kormala",
+    testimonial:
+      "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration. Globally synergize resource sucking value via cutting-edge.",
+    imageUrl:
+      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/testi_3_2.jpg",
+    rating: 5,
+  },
+  {
+    name: "Abraham Khalil",
+    role: "CEO at Anatora",
+    testimonial:
+      "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration. Globally synergize resource sucking value via cutting-edge.",
+    imageUrl:
+      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/testi_3_1.jpg",
+    rating: 5,
+  },
+  {
+    name: "Md Sumon Mia",
+    role: "CEO at Rimasu",
+    testimonial:
+      "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration. Globally synergize resource sucking value via cutting-edge.",
+    imageUrl:
+      "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/testi_3_3.jpg",
+    rating: 5,
   },
 ];
