@@ -48,9 +48,8 @@ const RegisterPage = () => {
         });
 
         setCookie("user", res.user.uid);
-        toast.success("Registration successful!");
-
         router.push("/");
+        toast.success("Registration successful!");
       }
     } catch (error: any) {
       console.error("Firebase Error:", error);

@@ -5,9 +5,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase/config";
-import { setCookie } from "cookies-next"; // cookies-next import
-import { ToastContainer, toast } from "react-toastify"; // react-toastify import
-import "react-toastify/dist/ReactToastify.css"; // toastify CSS import
+import { setCookie } from "cookies-next";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 
 export default function Home() {

@@ -15,7 +15,7 @@ import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <div
+    <footer
       className="bg-[#080E1C] py-10"
       style={{
         backgroundImage:
@@ -181,7 +181,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
