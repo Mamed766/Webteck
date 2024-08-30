@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ handleSideBar }) => {
 
   return (
     <>
-      <div className=" bg-[#E1EAFF] header__pad shadow-md ">
+      <div className=" bg-[#E1EAFF] fixed w-full z-10 header__pad shadow-md ">
         <div className=" max-w-[1300px] mx-auto flex justify-between items-center">
           <div>
             <Image
