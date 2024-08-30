@@ -48,3 +48,18 @@
   height: 16px;
   background-color: #684df4;
 }
+
+.teamSwiper .swiper-pagination {
+  transform: translateY(10px);
+}
+
+.teamSwiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
+
+.teamSwiper .swiper-pagination-bullet-active {
+  width: 16px;
+  height: 16px;
+  background-color: blueviolet;
+}

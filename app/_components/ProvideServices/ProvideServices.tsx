@@ -74,6 +74,9 @@ const ProvideServices = () => {
                 {slidesData?.map((slide) => (
                   <SwiperSlide
                     key={slide?.id}
+                    style={{
+                      transition: "background-color 0.3s, color 0.3s",
+                    }}
                     className="rounded  hover:bg-[#684DF4]  ease-in-out hover:text-white group flex py-10 flex-col justify-center "
                   >
                     <div className="flex items-center  justify-center">

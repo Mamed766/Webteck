@@ -14,6 +14,7 @@ import WhyChooseUs from "../_components/WhyChooseUs/WhyChooseUs";
 import Latest from "../_components/Latest/Latest";
 import Counters from "../_components/counters/Counters";
 import Process from "../_components/Process/Process";
+import Team from "../_components/team/Team";
 
 const HomePage: React.FC = () => {
   return (
@@ -46,6 +47,9 @@ const HomePage: React.FC = () => {
       </div>
       <div className="bg-[#F5F5F5]">
         <Process />
+      </div>
+      <div className="bg-[#F5F5F5]">
+        <Team />
       </div>
     </div>
   );
