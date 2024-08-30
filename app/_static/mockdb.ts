@@ -5,30 +5,37 @@ import {
   IProcessStep,
   Testimonial,
   BlogPost,
+  DropdownItem,
 } from "../_types/type";
 
-export const pagesItems = [
-  "Shop Page",
-  "Team",
-  "Team Details",
-  "Projects",
-  "Projects Details",
-  "Gallery",
-  "Pricing",
-  "Faq",
-  "Error Page",
+export const pagesItems: DropdownItem[] = [
+  { label: "Shop Page", link: "shop-page" },
+  { label: "Team", link: "team" },
+  { label: "Team Details", link: "team-details" },
+  { label: "Projects", link: "projects" },
+  { label: "Projects Details", link: "projects-details" },
+  { label: "Gallery", link: "gallery" },
+  { label: "Pricing", link: "pricing" },
+  { label: "Faq", link: "faq" },
+  { label: "Error Page", link: "error-page" },
 ];
 
-export const homeItems = [
-  "Muti Page",
-  "Multi Page New",
-  "One Page",
-  "Onepage New",
+export const homeItems: DropdownItem[] = [
+  { label: "Muti Page", link: "muti-page" },
+  { label: "Multi Page New", link: "multi-page-new" },
+  { label: "One Page", link: "one-page" },
+  { label: "Onepage New", link: "onepage-new" },
 ];
 
-export const serviceItems = ["Services", "Service Details"];
+export const serviceItems: DropdownItem[] = [
+  { label: "Services", link: "services" },
+  { label: "Service Details", link: "service-details" },
+];
 
-export const blogItems = ["Blog", "Blog Details"];
+export const blogItems: DropdownItem[] = [
+  { label: "Blog", link: "blog" },
+  { label: "Blog Details", link: "blog-details" },
+];
 
 export const slidesData: Slide[] = [
   {

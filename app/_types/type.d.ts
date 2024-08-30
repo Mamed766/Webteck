@@ -1,5 +1,10 @@
+export type DropdownItem = {
+  label: string;
+  link: string;
+};
+
 export type DropdownProps = {
-  items: string[];
+  items: DropdownItem[];
 };
 
 export interface Slide {

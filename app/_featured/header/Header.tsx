@@ -21,6 +21,7 @@ import { deleteCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./header.scss";
+import Link from "next/link";
 interface HeaderProps {
   handleSideBar: () => void;
 }
@@ -54,7 +55,8 @@ const Header: React.FC<HeaderProps> = ({ handleSideBar }) => {
           <div>
             <ul className="flex gap-5  header__mobile ">
               <li className="flex h-[5rem] group  font-medium items-center cursor-pointer gap-1 hover:text-[#684DF4] duration-300">
-                HOME <LiaAngleDownSolid className="mt-1" />{" "}
+                <Link href="/home"> HOME</Link>{" "}
+                <LiaAngleDownSolid className="mt-1" />{" "}
                 <Dropdown items={homeItems} />
               </li>
               <li className="flex h-[5rem] font-medium items-center cursor-pointer gap-1 hover:text-[#684DF4] duration-300">
