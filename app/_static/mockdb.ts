@@ -293,3 +293,19 @@ export const blogPosts: BlogPost[] = [
     authorName: "By Admin",
   },
 ];
+
+export const QuickLinks: string[] = [
+  "About us",
+  "Team",
+  "Faq",
+  "Projects",
+  "Contact us",
+];
+
+export const ItServicesLink: string[] = [
+  "Web Development",
+  "Business Development",
+  "Product Management",
+  "UI/UX Design",
+  "Cloud services",
+];
