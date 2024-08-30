@@ -41,7 +41,7 @@ const RippleButton = () => {
           }}
         />
         <button
-          className="relative z-10
+          className="relative z-[1]
             hover:bg-black
             duration-300
         bg-[#684DF4] flex items-center justify-center text-white h-[3rem] w-[3rem] rounded-full"
