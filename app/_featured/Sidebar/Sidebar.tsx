@@ -2,6 +2,7 @@ import { auth } from "@/app/firebase/config";
 import { deleteCookie } from "cookies-next";
 import { signOut } from "firebase/auth";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa6";
@@ -50,7 +51,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               <div className="grid place-items-center mr-4">
                 <FaAngleRight />
               </div>
-              Home
+              <Link className="w-full py-3" href="/home">
+                Home
+              </Link>
             </div>
             <div
               role="button"
@@ -59,16 +62,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               <div className="grid place-items-center mr-4">
                 <FaAngleRight />
               </div>
-              Projects
-            </div>
-            <div
-              role="button"
-              className="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none"
-            >
-              <div className="grid place-items-center mr-4">
-                <FaAngleRight />
-              </div>
-              Pages
+              <Link className="w-full py-3" href="/projects">
+                Projects
+              </Link>
             </div>
 
             <div
@@ -77,9 +73,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 onClose();
               }}
               role="button"
-              className="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none"
+              className="flex  items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none"
             >
-              <div className="grid place-items-center mr-4">
+              <div className="grid py-3 place-items-center mr-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
