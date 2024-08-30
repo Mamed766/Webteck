@@ -4,6 +4,7 @@ import {
   ICountersData,
   IProcessStep,
   Testimonial,
+  BlogPost,
 } from "../_types/type";
 
 export const pagesItems = [
@@ -231,5 +232,64 @@ export const testimonials: Testimonial[] = [
     imageUrl:
       "https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/testi_3_3.jpg",
     rating: 5,
+  },
+];
+
+export const blogPosts: BlogPost[] = [
+  {
+    id: 1,
+    imageUrl:
+      "https://wordpress.themeholy.com/webteck/wp-content/uploads/2023/02/blog-s-1-4-391x250.jpg",
+    date: "13,Feb2023",
+    comments: "3 Comments",
+    titleLine1: "Regional Manager limited",
+    titleLine2: "time management.",
+    description:
+      "Rapidiously repurpose leading edge growth strategies with just in time web readiness service Objectively communicate.",
+    authorImage:
+      "https://secure.gravatar.com/avatar/86d033e2d42a0631cc4f58b82dd01de9?s=96&d=mm&r=g",
+    authorName: "By Webteck",
+  },
+  {
+    id: 2,
+    imageUrl:
+      "https://wordpress.themeholy.com/webteck/wp-content/uploads/2023/02/blog-s-1-3-391x250.jpg",
+    date: "14,Mar2023",
+    comments: "5 Comments",
+    titleLine1: "What’s the Holding Back It ",
+    titleLine2: "Solution Industry?",
+    description:
+      "Rapidiously repurpose leading edge growth strategies with just in time web readiness service Objectively communicate.",
+    authorImage:
+      "https://secure.gravatar.com/avatar/86d033e2d42a0631cc4f58b82dd01de9?s=96&d=mm&r=g",
+    authorName: "By Admin",
+  },
+  {
+    id: 3,
+    imageUrl:
+      "https://wordpress.themeholy.com/webteck/wp-content/uploads/2023/02/blog-s-1-1-391x250.jpg",
+    date: "14,Mar2023",
+    comments: "5 Comments",
+    titleLine1: "What’s the Holding Back It ",
+    titleLine2: "Solution Industry?",
+    description:
+      "Rapidiously repurpose leading edge growth strategies with just in time web readiness service Objectively communicate.",
+    authorImage:
+      "https://secure.gravatar.com/avatar/86d033e2d42a0631cc4f58b82dd01de9?s=96&d=mm&r=g",
+    authorName: "By Admin",
+  },
+  {
+    id: 4,
+    imageUrl:
+      "https://wordpress.themeholy.com/webteck/wp-content/uploads/2023/02/blog-s-1-1-391x250.jpg",
+    date: "14,Mar2023",
+    comments: "5 Comments",
+    titleLine1: "Unsatiable entreaties may  ",
+    titleLine2: "collecting Power.",
+    description:
+      "Rapidiously repurpose leading edge growth strategies with just in time web readiness service Objectively communicate.",
+    authorImage:
+      "https://secure.gravatar.com/avatar/86d033e2d42a0631cc4f58b82dd01de9?s=96&d=mm&r=g",
+    authorName: "By Admin",
   },
 ];

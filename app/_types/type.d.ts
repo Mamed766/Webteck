@@ -54,3 +54,15 @@ export type TeamMember = {
   role: string;
   imageUrl: string;
 };
+
+export type BlogPost = {
+  id: number;
+  imageUrl: string;
+  date: string;
+  comments: string;
+  titleLine1: string;
+  titleLine2: string;
+  description: string;
+  authorImage: string;
+  authorName: string;
+};
