@@ -7,6 +7,7 @@ const nextConfig = {
       "themeholy.com",
       "unsplash.com",
       "wordpress.themeholy.com",
+      "secure.gravatar.com",
     ],
   },
 };

@@ -17,6 +17,7 @@ import Process from "../_components/Process/Process";
 import Team from "../_components/team/Team";
 import CustomerFeedback from "../_components/CustomerFeedback/CustomerFeedback";
 import Consultation from "../_components/Consultation/Consultation";
+import News from "../_components/News/News";
 
 const HomePage: React.FC = () => {
   return (
@@ -58,6 +59,9 @@ const HomePage: React.FC = () => {
       </div>
       <div className="bg-white ">
         <Consultation />
+      </div>
+      <div className="bg-[#F5F5F5] mt-10">
+        <News />
       </div>
     </div>
   );
