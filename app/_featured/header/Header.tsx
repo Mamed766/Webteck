@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ handleSideBar }) => {
                 <Dropdown items={blogItems} />
               </li>
               <li className="flex h-[5rem] font-medium items-center cursor-pointer gap-1 hover:text-[#684DF4] duration-300">
-                CONTACT US
+                <Link href={"/contact"}>CONTACT US</Link>
               </li>
             </ul>
           </div>
