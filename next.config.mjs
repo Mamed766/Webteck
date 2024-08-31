@@ -8,6 +8,7 @@ const nextConfig = {
       "unsplash.com",
       "wordpress.themeholy.com",
       "secure.gravatar.com",
+      "cdn.sanity.io",
     ],
   },
 };
