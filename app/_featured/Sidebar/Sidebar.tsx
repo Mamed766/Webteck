@@ -28,12 +28,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   return (
     <>
       <div
-        className={`fixed z-30 flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-screen w-full max-w-[20rem]  shadow-xl shadow-blue-gray-900/5 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed z-30 flex flex-col bg-clip-border  rounded-xl bg-white text-gray-700 h-screen w-full max-w-[20rem]  shadow-xl shadow-blue-gray-900/5 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="mb-2 p-4 bg-[#E2E8FA]">
-          <h5 className=" flex justify-center  antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900">
+          <h5 className=" flex justify-center   antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900">
             <Image
               src="https://themeholy.com/wordpress/fresh/wp-content/uploads/2024/02/logo.svg"
               width="200"
@@ -64,6 +64,17 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               </div>
               <Link className="w-full py-3" href="/projects">
                 Projects
+              </Link>
+            </div>
+            <div
+              role="button"
+              className="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-gray-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none"
+            >
+              <div className="grid place-items-center mr-4">
+                <FaAngleRight />
+              </div>
+              <Link className="w-full py-3" href="/contact">
+                Contact Us
               </Link>
             </div>
 
