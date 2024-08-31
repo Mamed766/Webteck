@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import { FaPlay } from "react-icons/fa";
 import { motion } from "framer-motion";
 import RippleButton from "../_components/Buttons/RippleButton";
@@ -19,7 +19,7 @@ import CustomerFeedback from "../_components/CustomerFeedback/CustomerFeedback";
 import Consultation from "../_components/Consultation/Consultation";
 import News from "../_components/News/News";
 
-const HomePage: React.FC = () => {
+export default function HomePage(): ReactElement {
   return (
     <div className="">
       <div className="bg-[#F0F4FF] pt-[10rem] pb-[15rem]">
@@ -65,6 +65,4 @@ const HomePage: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default HomePage;
+}
