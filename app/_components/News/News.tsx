@@ -9,6 +9,7 @@ import Image from "next/image";
 import { FaCalendar, FaMessage, FaRightLong } from "react-icons/fa6";
 import "./News.scss";
 import { blogPosts } from "@/app/_static/mockdb";
+import BreadCrump from "../BreadCrump/BreadCrump";
 
 const News = () => {
   return (
