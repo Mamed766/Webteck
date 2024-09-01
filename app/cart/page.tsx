@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { cartState } from "../atoms/CartState";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const Cart = () => {
   const [cartItem, setCartItem] = useRecoilState(cartState);
@@ -31,50 +32,82 @@ const Cart = () => {
   };
 
   return (
-    <div>
-      <div className="container mx-auto py-[20rem]">
+    <div
+      className=""
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1487846418109-474dd0e7b64b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="container py-[13rem] px-20 mx-auto  lg:py-[13rem]">
         {cartItem.length <= 0 ? (
-          <h1 className="text-center text-4xl ">Your Cart Is Empty</h1>
+          <h1 className="text-center text-2xl lg:text-4xl ">
+            Your Cart Is Empty
+          </h1>
         ) : (
           <>
             {cartItem.map((item, index) => (
               <div
                 key={index}
-                className="flex justify-between items-center border-b py-4"
+                className="flex mb-5 bg-white shadow-[0px_0px_20px_rgba(104,77,244,0.7)] px-5 rounded-md flex-col md:flex-row justify-between items-center border-b py-4"
               >
                 <div className="flex items-center">
                   <img
                     src={item.mainImage?.asset.url}
                     alt={item.title}
-                    className="w-20 h-20 object-cover rounded-md"
+                    className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-md"
                   />
                   <div className="ml-4">
-                    <h2 className="text-xl font-bold">{item.title}</h2>
-                    <p className="text-sm">{item.category}</p>
+                    <h2 className="text-lg md:text-xl font-bold text-[#684DF4]">
+                      {item.title}
+                    </h2>
+                    <p className="text-sm text-gray-500">{item.category}</p>
                   </div>
                 </div>
-                <div className="text-lg font-bold">
+                <div className="text-lg font-bold mt-4 md:mt-0">
                   {item.pricing}$ x {item.quantity}
                 </div>
-                <div className="text-lg font-bold">
+                <div className="text-lg font-bold mt-4 md:mt-0">
                   Total: {(item.pricing || 0) * item.quantity}$
                 </div>
-                <button
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0px 0px 30px rgba(255,0,0,0.7)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => removeFromCart(index)}
-                  className="ml-4 bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition"
+                  className="mt-4 md:mt-0 ml-0 
+                  shadow-[0px_0px_20px_rgba(255,0,0,0.7)]
+
+                  md:ml-4 bg-red-600 text-red-200 px-3 py-1 rounded-md  hover:bg-red-700 transition"
                 >
                   Remove
-                </button>
+                </motion.button>
               </div>
             ))}
-            <div className="text-right mt-8">
-              <button
+            <motion.div
+              className="text-right mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.button
                 onClick={createCheckoutSession}
-                className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                className="bg-[#684DF4] cursor-none shadow-[0px_0px_20px_rgba(104,77,244,0.7)] text-white px-4 py-2 rounded-md transition"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0px 0px 30px rgba(104,77,244,0.7)",
+                }}
+                whileTap={{ scale: 0.95 }}
               >
                 Checkout
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </>
         )}
       </div>
