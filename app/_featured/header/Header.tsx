@@ -37,6 +37,7 @@ const Header: React.FC<HeaderProps> = ({ handleSideBar }) => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
+      localStorage.setItem("cartItems", JSON.stringify([]));
       deleteCookie("user");
       router.push("/");
     } catch (error) {

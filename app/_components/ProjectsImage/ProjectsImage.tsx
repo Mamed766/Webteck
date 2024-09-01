@@ -28,7 +28,6 @@ const ProjectsImage = () => {
   const [cartItem, setCartItem] = useRecoilState(cartState);
 
   useEffect(() => {
-    // Sayfa yüklendiğinde localStorage'dan verileri yükle
     const storedCart = localStorage.getItem("cartItems");
     if (storedCart) {
       setCartItem(JSON.parse(storedCart));
@@ -42,20 +41,17 @@ const ProjectsImage = () => {
 
     let updatedCart;
     if (existingItemIndex === -1) {
-      updatedCart = [
-        ...cartItem,
-        { ...project, quantity: 1 }, // Yeni eklenen ürün için quantity'yi 1 olarak ayarla
-      ];
+      updatedCart = [...cartItem, { ...project, quantity: 1 }];
     } else {
       updatedCart = cartItem.map((item, index) =>
         index === existingItemIndex
-          ? { ...item, quantity: item.quantity + 1 } // Mevcut ürünün quantity'sini artır
+          ? { ...item, quantity: item.quantity + 1 }
           : item
       );
     }
 
     setCartItem(updatedCart);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCart)); // localStorage'ye kaydet
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
     toast.success(`${project.title} added to cart`);
   };
 
