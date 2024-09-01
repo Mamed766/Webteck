@@ -1,12 +1,17 @@
 "use client";
+import { cartState } from "@/app/atoms/CartState";
 import { fetchPosts } from "@/app/services/FetchPosts";
 import { urlFor } from "@/app/services/ImageUrl";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { FaPlus, FaX } from "react-icons/fa6";
+import { useRecoilState } from "recoil";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Project {
+  id: string;
   title: string;
   mainImage?: {
     asset: {
@@ -14,10 +19,46 @@ interface Project {
       url: string;
     };
   };
+  pricing?: number;
   category: string;
+  quantity: number;
 }
 
 const ProjectsImage = () => {
+  const [cartItem, setCartItem] = useRecoilState(cartState);
+
+  useEffect(() => {
+    // Sayfa yüklendiğinde localStorage'dan verileri yükle
+    const storedCart = localStorage.getItem("cartItems");
+    if (storedCart) {
+      setCartItem(JSON.parse(storedCart));
+    }
+  }, [setCartItem]);
+
+  const addItemToCart = (project: Project) => {
+    const existingItemIndex = cartItem.findIndex(
+      (pro) => pro.mainImage?.asset._id === project.mainImage?.asset._id
+    );
+
+    let updatedCart;
+    if (existingItemIndex === -1) {
+      updatedCart = [
+        ...cartItem,
+        { ...project, quantity: 1 }, // Yeni eklenen ürün için quantity'yi 1 olarak ayarla
+      ];
+    } else {
+      updatedCart = cartItem.map((item, index) =>
+        index === existingItemIndex
+          ? { ...item, quantity: item.quantity + 1 } // Mevcut ürünün quantity'sini artır
+          : item
+      );
+    }
+
+    setCartItem(updatedCart);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart)); // localStorage'ye kaydet
+    toast.success(`${project.title} added to cart`);
+  };
+
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -39,6 +80,7 @@ const ProjectsImage = () => {
 
   return (
     <div className="max-w-[1300px] mx-auto py-10">
+      <ToastContainer />
       <div className="rounded overflow-hidden flex flex-wrap justify-center gap-2">
         {projects.map((project, index) => (
           <div
@@ -48,6 +90,9 @@ const ProjectsImage = () => {
             <div className="relative group overflow-hidden min-h-[20rem] max-h-[30rem]">
               <Image
                 src={urlFor(project.mainImage).url() || ""}
+                onClick={() =>
+                  handleImageClick(urlFor(project?.mainImage)?.url() || "")
+                }
                 className="group-hover:scale-110 duration-300 relative z-[1]"
                 alt={project.title}
                 height={1000}
@@ -60,17 +105,17 @@ const ProjectsImage = () => {
                     "linear-gradient(to top, rgba(106, 13, 173, 0.3), rgba(138, 43, 226, 0.2), rgba(147, 112, 219, 0.1), rgba(255, 255, 255, 0))",
                 }}
               ></div>
-              <div
-                className="absolute translate-y-[10rem] duration-300 group-hover:translate-y-[0] left-[2.5rem] bottom-3 w-[20rem] h-[6rem] bg-[#684DF4] text-white rounded-lg flex items-center p-4 z-[3] cursor-pointer"
-                onClick={() =>
-                  handleImageClick(urlFor(project?.mainImage)?.url() || "")
-                }
-              >
+              <div className="absolute translate-y-[10rem] duration-300 group-hover:translate-y-[0] left-[2.5rem] bottom-3 w-[20rem] h-[6rem] bg-[#684DF4] text-white rounded-lg flex items-center p-4 z-[3] cursor-pointer">
                 <div>
                   <h3 className="text-lg font-bold">{project.title}</h3>
-                  <p className="text-sm">{project.category}</p>
+                  <p className="text-sm">
+                    {project.category} {project.pricing}$
+                  </p>
                 </div>
-                <div className="absolute right-[-1.5rem] hover:bg-[#101A33] duration-300 top-[1.5rem] rounded bg-white p-5">
+                <div
+                  onClick={() => addItemToCart(project)}
+                  className="absolute right-[-1.5rem] hover:bg-[#101A33] duration-300 top-[1.5rem] rounded bg-white p-5"
+                >
                   <FaPlus className="text-[#684DF4]" />
                 </div>
               </div>

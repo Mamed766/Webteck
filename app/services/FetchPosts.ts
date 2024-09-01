@@ -9,7 +9,8 @@ export async function fetchPosts() {
         url
       }
     },
-    category
+    category,
+    pricing
   }`;
 
   try {

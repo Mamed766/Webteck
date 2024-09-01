@@ -22,11 +22,15 @@ import { useRouter } from "next/navigation";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./header.scss";
 import Link from "next/link";
+import { useRecoilState } from "recoil";
+import { cartState } from "@/app/atoms/CartState";
 interface HeaderProps {
   handleSideBar: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ handleSideBar }) => {
+  const [cartItem] = useRecoilState(cartState);
+
   const router = useRouter();
   const [user] = useAuthState(auth);
 
@@ -54,7 +58,10 @@ const Header: React.FC<HeaderProps> = ({ handleSideBar }) => {
           </div>
           <div>
             <ul className="flex gap-5  header__mobile ">
-              <li className="flex h-[5rem] group  font-medium items-center cursor-pointer gap-1 hover:text-[#684DF4] duration-300">
+              <li
+                onClick={() => router.push("/home")}
+                className="flex h-[5rem] group  font-medium items-center cursor-pointer gap-1 hover:text-[#684DF4] duration-300"
+              >
                 <Link href="/home"> HOME</Link>{" "}
                 <LiaAngleDownSolid className="mt-1" />{" "}
                 <Dropdown items={homeItems} />
@@ -74,7 +81,10 @@ const Header: React.FC<HeaderProps> = ({ handleSideBar }) => {
                 BLOG <LiaAngleDownSolid className="mt-1" />
                 <Dropdown items={blogItems} />
               </li>
-              <li className="flex h-[5rem] font-medium items-center cursor-pointer gap-1 hover:text-[#684DF4] duration-300">
+              <li
+                onClick={() => router.push("/contact")}
+                className="flex h-[5rem] font-medium items-center cursor-pointer gap-1 hover:text-[#684DF4] duration-300"
+              >
                 <Link href={"/contact"}>CONTACT US</Link>
               </li>
             </ul>
@@ -83,8 +93,17 @@ const Header: React.FC<HeaderProps> = ({ handleSideBar }) => {
             <div className="bg-white p-4 rounded-full border cursor-pointer duration-300 hover:text-white hover:bg-[#684DF4]  ease-in-out  border-gray-200 shadow-md">
               <IoSearchOutline />
             </div>
-            <div className="bg-white p-4 rounded-full border cursor-pointer duration-300 hover:text-white hover:bg-[#684DF4]  ease-in-out  border-gray-200 shadow-md">
-              <RiShoppingCartLine />
+            <div
+              onClick={() => router.push("/cart")}
+              className="bg-white relative p-4 rounded-full border cursor-pointer duration-300 hover:text-white hover:bg-[#684DF4]  ease-in-out  border-gray-200 shadow-md"
+            >
+              <Link href="/cart">
+                {" "}
+                <RiShoppingCartLine />
+              </Link>
+              <span className="absolute top-2 right-[3px] text-[10px] bg-[#684DF4] h-[1rem] w-[1rem]  flex items-center text-white  justify-center rounded-full">
+                {cartItem.length}
+              </span>
             </div>
             <div className="flex items-center gap-1 header__tablet">
               <p> Hello {user ? user.displayName : "User"}!</p>

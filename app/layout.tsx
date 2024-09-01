@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.scss";
 import Layout from "./_featured/layout/Layout";
 import Cursor from "./_components/Cursor/Cursor";
-
+import { RecoilRoot } from "recoil";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
